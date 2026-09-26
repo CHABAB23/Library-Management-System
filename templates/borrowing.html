@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+Borrowing - Library Management System
+{% endblock %}
+
+{% block content %}
+
+<h1>📖 Borrowing Records</h1>
+
+<div class="actions">
+
+    <a href="{{ url_for('borrow_book') }}" class="btn">
+        + Borrow Book
+    </a>
+
+</div>
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>Loan ID</th>
+            <th>Book</th>
+            <th>Member</th>
+            <th>Borrow Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for loan in loans %}
+
+        <tr>
+
+            <td>{{ loan.loan_id }}</td>
+
+            <td>{{ loan.title }}</td>
+
+            <td>{{ loan.name }}</td>
+
+            <td>{{ loan.borrow_date }}</td>
+
+            <td>{{ loan.return_date or '' }}</td>
+
+            <td>
+
+                {% if loan.return_date %}
+
+                    <span class="available">
+                        Returned
+                    </span>
+
+                {% else %}
+
+                    <span class="borrowed">
+                        Active
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+            <td>
+
+                {% if not loan.return_date %}
+
+                <form
+                    method="POST"
+                    action="{{ url_for('return_book', loan_id=loan.loan_id) }}"
+                    style="display:inline;"
+                    onsubmit="return confirm('Return this book?');"
+                >
+
+                    <button type="submit" class="btn">
+                        Return
+                    </button>
+
+                </form>
+
+                {% else %}
+
+                    —
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

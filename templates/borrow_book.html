@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+Borrow Book - Library Management System
+{% endblock %}
+
+{% block content %}
+
+<h1>📖 Borrow a Book</h1>
+
+<form method="POST">
+
+    <p>
+        <label for="member_id">
+            Select Member
+        </label>
+        <br>
+
+        <select name="member_id" id="member_id" required>
+
+            <option value="">
+                -- Select a Member --
+            </option>
+
+            {% for member in members %}
+
+            <option value="{{ member.member_id }}">
+                {{ member.name }} - {{ member.email or 'No email' }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+    </p>
+
+    <p>
+        <label for="book_id">
+            Select Available Book
+        </label>
+        <br>
+
+        <select name="book_id" id="book_id" required>
+
+            <option value="">
+                -- Select a Book --
+            </option>
+
+            {% for book in books %}
+
+            <option value="{{ book.book_id }}">
+                {{ book.title }} - {{ book.author }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+    </p>
+
+    <button type="submit" class="btn">
+        📖 Borrow Book
+    </button>
+
+    <a href="{{ url_for('borrowing') }}" class="btn">
+        Cancel
+    </a>
+
+</form>
+
+{% endblock %}

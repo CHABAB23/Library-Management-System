@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard - Library Management System
+{% endblock %}
+
+{% block content %}
+
+<h1>📚 Library Dashboard</h1>
+
+<p>Welcome to the Library Management System</p>
+
+<div class="dashboard">
+
+    <div class="card">
+        <h2>📚</h2>
+        <h3>Total Books</h3>
+        <p>{{ total_books }}</p>
+    </div>
+
+    <div class="card">
+        <h2>✅</h2>
+        <h3>Available Books</h3>
+        <p>{{ available_books }}</p>
+    </div>
+
+    <div class="card">
+        <h2>📕</h2>
+        <h3>Borrowed Books</h3>
+        <p>{{ borrowed_books }}</p>
+    </div>
+
+    <div class="card">
+        <h2>👥</h2>
+        <h3>Total Members</h3>
+        <p>{{ total_members }}</p>
+    </div>
+
+    <div class="card">
+        <h2>📖</h2>
+        <h3>Active Loans</h3>
+        <p>{{ active_loans }}</p>
+    </div>
+
+</div>
+
+{% endblock %}
