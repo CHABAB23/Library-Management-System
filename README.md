@@ -132,6 +132,46 @@ This architecture allows each part of the system to have a specific responsibili
 
 ---
 
+## Application Screenshots
+
+### Dashboard
+
+The dashboard provides an overview of the library, including total books, available books, borrowed books, total members, and active loans.
+
+![Library Management System Dashboard](screenshots/dashboard.jpg)
+
+### Books Management
+
+The Books module allows librarians to view, search, add, edit, and manage library books.
+
+![Books Management](screenshots/books.jpg)
+
+### Add Book
+
+The application provides a form for adding new books with title, author, genre, and publication year.
+
+![Add Book](screenshots/add-book.jpg)
+
+### Edit Book
+
+Existing book information can be updated through the edit interface.
+
+![Edit Book](screenshots/edit-book.jpg)
+
+### Members Management
+
+The Members module allows the library to manage member information and search for members.
+
+![Members Management](screenshots/members.jpg)
+
+### Borrowing Management
+
+The Borrowing module manages book loans and returns while tracking borrowing history.
+
+![Borrowing Management](screenshots/borrowing.jpg)
+
+
+
 # 🖥️ Frontend
 
 The frontend is the part of the application that users interact with.
